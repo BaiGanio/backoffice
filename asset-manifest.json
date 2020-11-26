@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/back-office/static/css/main.1c9ec334.chunk.css",
-    "main.js": "/back-office/static/js/main.d194e24c.chunk.js",
-    "main.js.map": "/back-office/static/js/main.d194e24c.chunk.js.map",
-    "runtime-main.js": "/back-office/static/js/runtime-main.b65d4dfd.js",
-    "runtime-main.js.map": "/back-office/static/js/runtime-main.b65d4dfd.js.map",
-    "static/js/2.4f322a5b.chunk.js": "/back-office/static/js/2.4f322a5b.chunk.js",
-    "static/js/2.4f322a5b.chunk.js.map": "/back-office/static/js/2.4f322a5b.chunk.js.map",
-    "static/js/3.0a53a04a.chunk.js": "/back-office/static/js/3.0a53a04a.chunk.js",
-    "static/js/3.0a53a04a.chunk.js.map": "/back-office/static/js/3.0a53a04a.chunk.js.map",
-    "index.html": "/back-office/index.html",
-    "static/css/main.1c9ec334.chunk.css.map": "/back-office/static/css/main.1c9ec334.chunk.css.map",
-    "static/js/2.4f322a5b.chunk.js.LICENSE.txt": "/back-office/static/js/2.4f322a5b.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/back-office/static/media/logo.6ce24c58.svg"
+    "main.css": "/backoffice/static/css/main.1c9ec334.chunk.css",
+    "main.js": "/backoffice/static/js/main.17095541.chunk.js",
+    "main.js.map": "/backoffice/static/js/main.17095541.chunk.js.map",
+    "runtime-main.js": "/backoffice/static/js/runtime-main.db452b76.js",
+    "runtime-main.js.map": "/backoffice/static/js/runtime-main.db452b76.js.map",
+    "static/js/2.1a7729bf.chunk.js": "/backoffice/static/js/2.1a7729bf.chunk.js",
+    "static/js/2.1a7729bf.chunk.js.map": "/backoffice/static/js/2.1a7729bf.chunk.js.map",
+    "static/js/3.67cbcb29.chunk.js": "/backoffice/static/js/3.67cbcb29.chunk.js",
+    "static/js/3.67cbcb29.chunk.js.map": "/backoffice/static/js/3.67cbcb29.chunk.js.map",
+    "index.html": "/backoffice/index.html",
+    "static/css/main.1c9ec334.chunk.css.map": "/backoffice/static/css/main.1c9ec334.chunk.css.map",
+    "static/js/2.1a7729bf.chunk.js.LICENSE.txt": "/backoffice/static/js/2.1a7729bf.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/backoffice/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.b65d4dfd.js",
-    "static/js/2.4f322a5b.chunk.js",
+    "static/js/runtime-main.db452b76.js",
+    "static/js/2.1a7729bf.chunk.js",
     "static/css/main.1c9ec334.chunk.css",
-    "static/js/main.d194e24c.chunk.js"
+    "static/js/main.17095541.chunk.js"
   ]
 }
