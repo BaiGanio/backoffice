@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/backoffice/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/backoffice/static/js/main.88f9843f.chunk.js",
-    "main.js.map": "/backoffice/static/js/main.88f9843f.chunk.js.map",
+    "main.js": "/backoffice/static/js/main.e3e9b8fd.chunk.js",
+    "main.js.map": "/backoffice/static/js/main.e3e9b8fd.chunk.js.map",
     "runtime-main.js": "/backoffice/static/js/runtime-main.db452b76.js",
     "runtime-main.js.map": "/backoffice/static/js/runtime-main.db452b76.js.map",
     "static/js/2.1a7729bf.chunk.js": "/backoffice/static/js/2.1a7729bf.chunk.js",
@@ -12,12 +12,12 @@
     "index.html": "/backoffice/index.html",
     "static/css/main.8c8b27cf.chunk.css.map": "/backoffice/static/css/main.8c8b27cf.chunk.css.map",
     "static/js/2.1a7729bf.chunk.js.LICENSE.txt": "/backoffice/static/js/2.1a7729bf.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/backoffice/static/media/logo.6ce24c58.svg"
+    "static/media/backoffice.d3db7d69.jpg": "/backoffice/static/media/backoffice.d3db7d69.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.db452b76.js",
     "static/js/2.1a7729bf.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.88f9843f.chunk.js"
+    "static/js/main.e3e9b8fd.chunk.js"
   ]
 }
