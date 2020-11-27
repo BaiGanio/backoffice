@@ -2,7 +2,8 @@ import backoffice from './images/backoffice.jpg';
 import './App.css';
 import Person from './Person/Person';
 import React, {Component} from 'react';
-
+import Layout from './components/Layout/Layout'
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder'
 
 class App extends Component {
   state = {
@@ -53,16 +54,20 @@ class App extends Component {
           <button
             style={style}
             onClick={this.switchNameHandler.bind(this, 'Button')}>Log In</button>
-          <Person 
+          
+          {/* <Person 
             name={this.state.persons[0].name} 
             age={this.state.persons[0].age}/>
           <Person 
             name={this.state.persons[1].name} 
             age={this.state.persons[1].age}
             click={this.switchNameHandler.bind(this, 'Cllck event')}
-            changed={this.nameChangedHandler}/>
+            changed={this.nameChangedHandler}/> */}
         
         </header>
+        <Layout>
+              <BurgerBuilder />
+            </Layout>
       </div>
     ); 
   }
