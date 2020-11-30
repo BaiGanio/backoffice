@@ -1,25 +1,50 @@
-import backoffice from './assets/images/backoffice.jpg';
 import './App.css';
-import Button from '@material-ui/core/Button';
-import PrimarySearchAppBar from './components/PrimarySearchAppBar';
+import React, {Component} from "react";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import { LinkContainer } from "react-router-bootstrap";
+import Routes from "./Routes";
 
-function App() {
-  return (
-    <div className="App">
-    <PrimarySearchAppBar/>
-
-      <header className="App-header">
-      <img src={backoffice} className="App-logo" alt="logo" />
-      <p>
-      Welcome to BackOffice
-      </p>
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
-      </header>
-
+class App extends Component {
+  render(){
+    
+    return (
+      <div className="App container py-3">
+      <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
+        <LinkContainer to="/">
+          <Navbar.Brand className="font-weight-bold text-muted">
+            Scratch
+          </Navbar.Brand>
+        </LinkContainer>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="justify-content-end">
+          <Nav activeKey={window.location.pathname}>
+            <LinkContainer to="/signup">
+              <Nav.Link>Signup</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/login">
+              <Nav.Link>Login</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      <Routes />
     </div>
-  );
+      // <div className="App">
+      // <PrimarySearchAppBar/>
+
+      //   <header className="App-header">
+      //     <img src={backoffice} className="App-logo" alt="logo" />
+      //     <p>
+      //     Welcome to BackOffice
+      //     </p>
+      //     <Button variant="contained" color="primary">
+      //       Hello World
+      //     </Button>
+      //   </header>
+      // </div>
+    );
+  }
 }
 
 export default App;
