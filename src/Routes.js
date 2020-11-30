@@ -8,10 +8,10 @@ import NotFound from "./components/NotFound/NotFound";
 export default function Routes() {
   return (
      <HashRouter basename='/'>
-    <Route exact path="/backoffice">
+    <Route exact path="/">
         <Home />
       </Route>
-      <Route exact path="/backoffice/login">
+      <Route exact path="/login">
         <Login />
       </Route>
       {/* Finally, catch all unmatched routes */}
