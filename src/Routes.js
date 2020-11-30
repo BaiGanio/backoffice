@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import createHistory from 'history/createBrowserHistory';
 import Home from "./containers/Home/Home";
 import Login from "./containers/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
