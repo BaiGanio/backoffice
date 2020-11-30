@@ -7,10 +7,10 @@ import NotFound from "./components/NotFound/NotFound";
 export default function Routes() {
   return (
     <Switch>
-      <Route exact path="/">
+      <Route exact path="/backoffice">
         <Home />
       </Route>
-      <Route exact path="/login">
+      <Route exact path="/backoffice/login">
         <Login />
       </Route>
       {/* Finally, catch all unmatched routes */}
