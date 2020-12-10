@@ -30,19 +30,6 @@ class App extends Component {
       </Navbar>
       <Routes />
     </div>
-      // <div className="App">
-      // <PrimarySearchAppBar/>
-
-      //   <header className="App-header">
-      //     <img src={backoffice} className="App-logo" alt="logo" />
-      //     <p>
-      //     Welcome to BackOffice
-      //     </p>
-      //     <Button variant="contained" color="primary">
-      //       Hello World
-      //     </Button>
-      //   </header>
-      // </div>
     );
   }
 }
