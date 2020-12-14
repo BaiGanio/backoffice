@@ -1,4 +1,5 @@
 import React from "react";
+import { Typography } from "@material-ui/core"
 import "./Home.css";
 import backoffice from '../../assets/images/backoffice.jpg';
 
@@ -6,9 +7,9 @@ export default function Home() {
   return (
     <div className="Home">
       <div className="lander">
-      <img src={backoffice} className="App-logo" alt="logo" />
+        <img src={backoffice} className="BO-landing-image" alt="BO-landing" />
         <h1>Welcome to BackOffice</h1>
-        <p className="text-muted">A simple React app _!_</p>
+        <p className="text-muted">A simple React app</p>
       </div>
     </div>
   );

@@ -4,11 +4,9 @@
   }
   
   .Home .lander h1 {
-    
-    font-weight: 600;
+    font-weight: 800;
   }
-  .App-logo {
+  .BO-landing-image {
     height: 40vmin;
     pointer-events: none;
-    
   }
