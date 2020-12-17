@@ -1,21 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Open+Sans+Condensed:wght@300&display=swap');
 body {
-  font-family: 'Open Sans Condensed', sans-serif;
-  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif; */
+    sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; 
-  width: 96%;
-  margin: 0 auto;
-  text-align: center;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-select.form-control,
-textarea.form-control,
-input.form-control {
-  font-size: 1rem;
-}
-input[type=file] {
-  width: 100%;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
