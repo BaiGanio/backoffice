@@ -19,6 +19,9 @@ export default function AppNavBar() {
         <LinkContainer to="/blog">
           <Nav.Link>Blog</Nav.Link>
         </LinkContainer>
+        <LinkContainer to="/courses">
+          <Nav.Link>Courses</Nav.Link>
+        </LinkContainer>
         <LinkContainer to="/characters">
           <Nav.Link>Characters</Nav.Link>
         </LinkContainer>

@@ -5,6 +5,7 @@ import NotFound from "./parts/NotFound/NotFound";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Blog from "./pages/Blog/Blog";
+import Courses from "./pages/Courses/Courses";
 import Characters from "./pages/Characters/Characters";
 import CharactersMUI from "./pages/CharactersMUI/CharactersMUI";
 
@@ -18,10 +19,8 @@ export default function Routes() {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/characters" component={Characters} /> 
       <Route path="/characters-mui" component={CharactersMUI} />
-      {/* 
-      <Route path="/forgot-password" component={ForgotPassword} />*/}
-      {/* <Route path="/courses" component={CoursesList} /> */}
-      {/*  */}
+      <Route path="/courses" component={Courses} />
+      {/* <Route path="/forgot-password" component={ForgotPassword} /> */}
       <Route><NotFound /></Route>
     </Switch>
   );
