@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import { LinkContainer } from "react-router-bootstrap";
-import Nav from "react-bootstrap/Nav";
 
 import Button from "react-bootstrap/Button";
 import "./Login.css";
-import Routes from "../../Routes";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -44,11 +41,7 @@ export default function Login() {
         </Button>
       </Form>
       <br/>
-      <LinkContainer to="/forgot-password">
-      <Nav.Link> Forgot password?</Nav.Link>
-     
-        </LinkContainer>
-        <Routes/>
+      <p>Forgot password?</p>
     </div>
   );
 }
