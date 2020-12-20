@@ -1,12 +1,14 @@
 import React from 'react';
+import Routes from "../../Routes";
 import Navbar from "react-bootstrap/Navbar";
 import { LinkContainer } from "react-router-bootstrap";
 import Nav from "react-bootstrap/Nav";
+
 export default function AppNavBar() {
   return (
     <div className="appbar">
      <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
-        <LinkContainer to="/">
+        <LinkContainer to="/backoffice">
           <Navbar.Brand className="font-weight-bold text-muted">
             Scratch
           </Navbar.Brand>
@@ -14,15 +16,16 @@ export default function AppNavBar() {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Nav activeKey={window.location.pathname}>
-            <LinkContainer to="/signup">
+            <LinkContainer to="/backoffice/signup">
               <Nav.Link>Signup</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/login">
+            <LinkContainer to="/backoffice/login">
               <Nav.Link>Login</Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+        <Routes />
 </div>
   );
 }

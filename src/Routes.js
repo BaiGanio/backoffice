@@ -2,10 +2,12 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Home from "./containers/Home/Home";
 import NotFound from "./components/NotFound/NotFound";
+
 export default function Routes() {
+
   return (
-      <Switch>
-      <Route exact path="/" component={Home} />
+    <Switch>
+      <Route exact path="/backoffice" component={Home} />
       {/* <Route path="/login" component={Login} />
       <Route path="/signin" component={SignIn} />
       <Route path="/forgot-password" component={ForgotPassword} />

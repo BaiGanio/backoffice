@@ -2,7 +2,7 @@
   "name": "backoffice",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://baiganio.github.io/backoffice",
+  "homepage": "https://baiganio.github.io/backoffice/",
   "dependencies": {
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
