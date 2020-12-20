@@ -43,7 +43,7 @@ export default function Login() {
         </Button>
       </Form>
       <br/>
-      <LinkContainer to="/forgot-password">
+      <LinkContainer to="/backoffice/forgot-password">
       <Nav.Link> Forgot password?</Nav.Link>
      
         </LinkContainer>
