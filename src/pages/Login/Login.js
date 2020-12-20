@@ -39,6 +39,8 @@ export default function Login() {
           Login
         </Button>
       </Form>
+      <br/>
+      <a href="/forgot-password"> Forgot password? </a>
     </div>
   );
 }
