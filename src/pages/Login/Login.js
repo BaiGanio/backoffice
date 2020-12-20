@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
+import { LinkContainer } from "react-router-bootstrap";
+import Nav from "react-bootstrap/Nav";
+
 import Button from "react-bootstrap/Button";
 import "./Login.css";
 
@@ -40,7 +43,10 @@ export default function Login() {
         </Button>
       </Form>
       <br/>
-      <a href="/forgot-password"> Forgot password? </a>
+      <LinkContainer to="/forgot-password">
+      <Nav.Link> Forgot password?</Nav.Link>
+     
+        </LinkContainer>
     </div>
   );
 }
