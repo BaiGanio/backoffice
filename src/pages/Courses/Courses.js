@@ -38,9 +38,7 @@ export default function Courses() {
    return (
     <div>
         <Container>
-    <Typography color="textPrimary" gutterBottom variant="h2" align="center">
-        BGAPI fetch courses
-    </Typography>
+  <h1> BGAPI fetch courses</h1>
     
     </Container>
           <Grid container spacing={3}>
