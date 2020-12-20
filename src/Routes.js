@@ -7,7 +7,7 @@ export default function Routes() {
 
   return (
     <Switch>
-      <Route exact path="/backoffice" component={Home} />
+      <Route exact path="/" component={Home} />
       {/* <Route path="/login" component={Login} />
       <Route path="/signin" component={SignIn} />
       <Route path="/forgot-password" component={ForgotPassword} />
