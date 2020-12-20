@@ -7,20 +7,27 @@ import Nav from "react-bootstrap/Nav";
 export default function AppNavBar() {
   return (
     <div className="appbar">
-     <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
+      <Navbar collapseOnSelect bg="light" expand="md" className="mb-3">
         <LinkContainer to="/">
-          <Navbar.Brand className="font-weight-bold text-muted">
+          <Navbar.Brand className="font-weight-bold">
             BO
           </Navbar.Brand>
+        </LinkContainer>
+        <LinkContainer to="/dashboard">
+          <Nav.Link>Dashboard</Nav.Link>
+        </LinkContainer>
+        <LinkContainer to="/blog">
+          <Nav.Link>Blog</Nav.Link>
         </LinkContainer>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Nav activeKey={window.location.pathname}>
-            <LinkContainer to="/signup">
-              <Nav.Link>Signup</Nav.Link>
+          <LinkContainer to="/login">
+              <Nav.Link>Sign in</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/login">
-              <Nav.Link>Login</Nav.Link>
+            <Nav.Link>|</Nav.Link>
+            <LinkContainer to="/signup" className="text-muted">
+              <Nav.Link>Sign up</Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>

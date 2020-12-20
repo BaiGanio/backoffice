@@ -5,7 +5,7 @@ import AppNavBar from './components/AppNavBar/AppNavBar';
 
 export default function App() {
     return (
-      <div className="App py-3">
+      <div className="App">
         <AppNavBar/>
       </div>
     );
