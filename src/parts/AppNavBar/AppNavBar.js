@@ -19,6 +19,12 @@ export default function AppNavBar() {
         <LinkContainer to="/blog">
           <Nav.Link>Blog</Nav.Link>
         </LinkContainer>
+        <LinkContainer to="/characters">
+          <Nav.Link>Characters</Nav.Link>
+        </LinkContainer>
+        <LinkContainer to="/characters-mui">
+          <Nav.Link>Characters MUI</Nav.Link>
+        </LinkContainer>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Nav activeKey={window.location.pathname}>

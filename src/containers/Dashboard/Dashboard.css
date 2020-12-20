@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Alsandra';
+    src: url('../../assets/fonts/alsandra.ttf') format('truetype');
+  }
+
+  .mainListItems{
+    font-family: 'Alsandra';
+  }
