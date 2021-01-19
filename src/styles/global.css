@@ -1,0 +1,20 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Nerko+One&family=Open+Sans+Condensed:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC&family=Quicksand&display=swap"); */
+@import "bootstrap/dist/css/bootstrap.min.css";
+@font-face {
+  font-family: "Alsandra";
+  src: url("../assets/fonts/alsandra.ttf") format("truetype");
+}
+.App {
+  /* font-family: 'Open Sans Condensed', sans-serif;   */
+  /* font-family: "Alsandra"; */
+  font-family: courier, arial, helvetica;
+  text-align: center;
+  width: 98%;
+  margin: 0 auto;
+}
+.input-error-msg {
+  text-align: left;
+  color: red;
+  margin-bottom: 10px;
+}
