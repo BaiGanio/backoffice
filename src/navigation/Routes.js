@@ -22,9 +22,7 @@ export default function Routes() {
       <Route path="/characters-mui" component={CharactersMUI} />
       <Route path="/courses" component={Courses} />
       <Route path="/forgot-password" component={ForgotPassword} />
-      <Route>
-        <NotFound />
-      </Route>
+      <Route path="*" component={NotFound} />
     </Switch>
   );
 }
