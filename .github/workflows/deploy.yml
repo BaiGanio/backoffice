@@ -32,3 +32,11 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: ./build
+        env:
+          REACT_APP_BGAPI_URL: ${{ secrets.REACT_APP_BGAPI_URL }}
+          REACT_APP_IS4_URL: ${{ secrets.REACT_APP_IS4_URL }}
+          REACT_APP_IS4_CLIENT: ${{ secrets.REACT_APP_IS4_CLIENT }}
+          REACT_APP_IS4_CLIENT_SECRET: ${{ secrets.REACT_APP_IS4_CLIENT_SECRET }}
+          REACT_APP_IS4_USER: ${{ secrets.REACT_APP_IS4_USER }}
+          REACT_APP_IS4_USER_SECRET: ${{ secrets.REACT_APP_IS4_USER_SECRET }}
+          REACT_APP_IS4_SCOPE: ${{ secrets.REACT_APP_IS4_SCOPE }}

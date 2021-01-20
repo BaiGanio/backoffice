@@ -63,7 +63,7 @@ export default function Login() {
           handleSubmit,
           isSubmitting,
         }) => (
-          <Form autoComplete="true" onSubmit={handleSubmit}>
+          <Form noValidate autoComplete="true" onSubmit={handleSubmit}>
             <Form.Group size="lg" controlId="email">
               <Form.Label>Email</Form.Label>
               <Form.Control
@@ -72,11 +72,12 @@ export default function Login() {
                 type="email"
                 value={values.email}
                 onChange={handleChange}
+                isInvalid={touched.email && !!errors.email}
               />
+              <Form.Control.Feedback type="invalid">
+                {errors.email}
+              </Form.Control.Feedback>
             </Form.Group>
-            {errors.email && touched.email ? (
-              <div className="input-error-msg">{errors.email}</div>
-            ) : null}
             <Form.Group size="lg" controlId="password">
               <Form.Label>Password</Form.Label>
               <Form.Control
@@ -84,13 +85,14 @@ export default function Login() {
                 type="password"
                 value={values.password}
                 onChange={handleChange}
+                isInvalid={touched.password && !!errors.password}
               />
+              <Form.Control.Feedback type="invalid">
+                {errors.password}
+              </Form.Control.Feedback>
             </Form.Group>
-            {errors.password && touched.password ? (
-              <div className="input-error-msg">{errors.password}</div>
-            ) : null}
             <Button block size="lg" type="submit" disabled={isSubmitting}>
-              Login
+              {isSubmitting ? "Loging..." : "Login"}
             </Button>
           </Form>
         )}
