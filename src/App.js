@@ -1,14 +1,15 @@
-import './App.css';
+import "./styles/global.css";
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import AppNavBar from './parts/AppNavBar/AppNavBar';
-import Footer from './parts/Footer/Footer';
+import AppNavBar from "./navigation/AppNavBar/AppNavBar";
+import Footer from "./navigation/Footer/Footer";
+import Routes from "./navigation/Routes";
 
 export default function App() {
-    return (
-      <div className="App">
-        <AppNavBar/>
-        <Footer/>
-      </div>
-    );
+  return (
+    <div className="App">
+      <AppNavBar />
+      <Routes />
+      <Footer />
+    </div>
+  );
 }

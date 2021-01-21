@@ -8,19 +8,35 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: Install Packages
-      run: npm install
-    - name: Build page
-      run: npm run-script build
-    - name: Deploy to gh-pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        publish_dir: ./build
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install Packages
+        run: npm install
+      - name: Build page
+        run: npm run-script build
+        env:
+          REACT_APP_BGAPI_URL: ${{ secrets.REACT_APP_BGAPI_URL }}
+          REACT_APP_IS4_URL: ${{ secrets.REACT_APP_IS4_URL }}
+          REACT_APP_IS4_CLIENT: ${{ secrets.REACT_APP_IS4_CLIENT }}
+          REACT_APP_IS4_CLIENT_SECRET: ${{ secrets.REACT_APP_IS4_CLIENT_SECRET }}
+          REACT_APP_IS4_USER: ${{ secrets.REACT_APP_IS4_USER }}
+          REACT_APP_IS4_USER_SECRET: ${{ secrets.REACT_APP_IS4_USER_SECRET }}
+          REACT_APP_IS4_SCOPE: ${{ secrets.REACT_APP_IS4_SCOPE }}
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./build
+        env:
+          REACT_APP_BGAPI_URL: ${{ secrets.REACT_APP_BGAPI_URL }}
+          REACT_APP_IS4_URL: ${{ secrets.REACT_APP_IS4_URL }}
+          REACT_APP_IS4_CLIENT: ${{ secrets.REACT_APP_IS4_CLIENT }}
+          REACT_APP_IS4_CLIENT_SECRET: ${{ secrets.REACT_APP_IS4_CLIENT_SECRET }}
+          REACT_APP_IS4_USER: ${{ secrets.REACT_APP_IS4_USER }}
+          REACT_APP_IS4_USER_SECRET: ${{ secrets.REACT_APP_IS4_USER_SECRET }}
+          REACT_APP_IS4_SCOPE: ${{ secrets.REACT_APP_IS4_SCOPE }}

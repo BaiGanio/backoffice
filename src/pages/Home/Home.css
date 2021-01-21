@@ -1,17 +1,18 @@
 .Home .lander {
-    padding: 60px 0;
-    text-align: center;
-  }
-  
-  .Home .lander h1 {
-    font-weight: 600;
-  }
-  .Home .lander p {
-    font-weight: 400;
-    font-size: 1.2em;
-  }
-  .Home-image {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
+  padding: 60px 0;
+  text-align: center;
+}
+
+.Home .lander h1 {
+  font-weight: 600;
+}
+
+.Home .lander p {
+  font-weight: 400;
+  font-size: 1.2em;
+}
+
+.Home-image {
+  height: 40vmin;
+  pointer-events: none;
+}
