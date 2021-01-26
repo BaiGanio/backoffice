@@ -4,14 +4,15 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import App from "./App";
+import { ServerCacheProvider } from "./server-cache/provider";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
+  <Provider store={store}>
+    <ServerCacheProvider>
       <Router basename="/backoffice">
         <App />
       </Router>
-    </Provider>
-  </React.StrictMode>,
+    </ServerCacheProvider>
+  </Provider>,
   document.getElementById("root")
 );

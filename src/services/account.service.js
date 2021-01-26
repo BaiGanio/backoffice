@@ -3,7 +3,7 @@ import * as is4API from "../utils/is4-api";
 const USER_AUTH_TOKEN = "user_auth_token";
 const CLIENT_AUTH_TOKEN = "client_auth_token";
 
-function getUserFromToken() {
+function getDataFromToken() {
   const token = getUserToken();
   if (token) {
     var base64Url = token.split(".")[1];
@@ -72,6 +72,6 @@ export {
   getClientToken,
   saveUserToken,
   saveClientToken,
-  getUserFromToken,
+  getDataFromToken,
   logoutUser,
 };

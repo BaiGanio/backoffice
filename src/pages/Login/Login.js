@@ -5,12 +5,13 @@ import { Formik } from "formik";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {
+  logoutUser,
   requestUserToken,
   saveUserToken,
-  getUserFromToken,
 } from "../../services/account.service";
 import { useDispatch } from "react-redux";
 import { loginUserAction } from "../../redux/actions/user.action";
+import { getUserByToken } from "../../services/user-data.service";
 
 export default function Login() {
   const routeHistory = useHistory();
@@ -23,10 +24,18 @@ export default function Login() {
     };
     requestUserToken(request).then(
       (response) => {
-        setSubmitting(false);
         saveUserToken(response.access_token);
-        dispatch(loginUserAction(getUserFromToken()));
-        routeHistory.push("/dashboard");
+        getUserByToken().then(
+          (user) => {
+            setSubmitting(false);
+            dispatch(loginUserAction(user));
+            routeHistory.push("/dashboard");
+          },
+          (error) => {
+            setSubmitting(false);
+            logoutUser();
+          }
+        );
       },
       (error) => {
         setSubmitting(false);
@@ -37,7 +46,10 @@ export default function Login() {
   return (
     <div className="Login">
       <Formik
-        initialValues={{ email: "", password: "" }}
+        initialValues={{
+          email: "",
+          password: "",
+        }}
         validate={(values) => {
           const errors = {};
           if (!values.email) {
@@ -65,7 +77,7 @@ export default function Login() {
         }) => (
           <Form noValidate autoComplete="true" onSubmit={handleSubmit}>
             <Form.Group size="lg" controlId="email">
-              <Form.Label>Email</Form.Label>
+              <Form.Label> Email </Form.Label>
               <Form.Control
                 autoFocus
                 name="email"
@@ -79,7 +91,7 @@ export default function Login() {
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group size="lg" controlId="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label> Password </Form.Label>
               <Form.Control
                 name="password"
                 type="password"
@@ -97,9 +109,8 @@ export default function Login() {
           </Form>
         )}
       </Formik>
-
       <br />
-      <p>Forgot password?</p>
+      <p> Forgot password ? </p>
     </div>
   );
 }

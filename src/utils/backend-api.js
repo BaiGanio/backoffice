@@ -1,4 +1,6 @@
-const backendURL = process.env.REACT_APP_BGAPI_URL;
+import { getUserToken } from "../services/account.service";
+
+const backendURL = `${process.env.REACT_APP_BGAPI_URL}/api`;
 
 function GET(endpoint) {
   return window
@@ -18,13 +20,15 @@ function GET(endpoint) {
     });
 }
 
-function POST(endpoint, body) {
+function POST(endpoint, body, headers = {}) {
   return window
     .fetch(`${backendURL}${endpoint}`, {
       method: "POST",
       body,
       headers: {
+        "Content-Type": "application/json; charset=utf-8",
         Authorization: `Bearer ${getUserToken() || undefined}`,
+        ...headers,
       },
     })
     .then(async (response) => {
