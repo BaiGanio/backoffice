@@ -1,20 +1,29 @@
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
-import { getAllUsers } from "../../services/user-data.service";
+import {
+  getAllUsers,
+  getAllUsersFromStatistics,
+} from "../../services/user-data.service";
 import { IconButton } from "@material-ui/core";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 import { useSelector } from "react-redux";
 import { UserRolesEnum } from "../../utils/enums";
 import { useQuery } from "react-query";
+import { getUserToken } from "../../services/account.service";
 
 function UsersTable() {
   const userRoles = useSelector((state) => state.user.roles);
-  const {
-    data: allUsers,
-    isLoading: usersAreLoading,
-    isError,
-  } = useQuery("all-users", () => getAllUsers());
+  const { data: allUsers, isLoading: usersAreLoading, isError } = useQuery(
+    "all-users",
+    () => {
+      if (getUserToken()) {
+        return getAllUsers();
+      } else {
+        return getAllUsersFromStatistics();
+      }
+    }
+  );
 
   const isAdmin = userRoles?.map((r) => r.name).includes(UserRolesEnum.Admin);
 

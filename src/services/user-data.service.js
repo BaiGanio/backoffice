@@ -4,6 +4,10 @@ function getAllUsers() {
   return backendAPI.GET("/Users");
 }
 
+function getAllUsersFromStatistics() {
+  return backendAPI.GET("/Statistics");
+}
+
 function getUserById(id) {
   const getUserByIdEndpoint = `/Users?id=${id}`;
   return backendAPI.GET(getUserByIdEndpoint);
@@ -42,4 +46,5 @@ export {
   createUser,
   updateUser,
   deleteUser,
+  getAllUsersFromStatistics,
 };

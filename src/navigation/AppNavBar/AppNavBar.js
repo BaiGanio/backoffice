@@ -5,14 +5,17 @@ import Nav from "react-bootstrap/Nav";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUserAction } from "../../redux/actions/user.action";
 import { useHistory } from "react-router-dom";
+import { useQueryClient } from "react-query";
 
 export default function AppNavBar() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const routeHistory = useHistory();
+  const queryClient = useQueryClient();
 
   function logout() {
     dispatch(logoutUserAction());
+    queryClient.clear();
     routeHistory.push("/login");
   }
 
