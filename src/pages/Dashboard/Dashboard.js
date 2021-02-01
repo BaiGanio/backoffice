@@ -12,7 +12,7 @@ import { mainListItems, secondaryListItems } from "./listItems";
 import Chart from "./Chart";
 import Deposits from "./Deposits";
 import "./Dashboard.css";
-import { UsersTable } from "./UsersTable";
+import { UsersTable } from "../../containers/UsersTable";
 
 // const drawerWidth = 260;
 

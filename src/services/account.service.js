@@ -1,7 +1,7 @@
 import * as is4API from "../utils/is4-api";
 
-const USER_AUTH_TOKEN = "user_auth_token";
-const CLIENT_AUTH_TOKEN = "client_auth_token";
+const USER_AUTH_TOKEN = "bo_user_auth_token";
+const CLIENT_AUTH_TOKEN = "bo_client_auth_token";
 
 function getDataFromToken() {
   const token = getUserToken();

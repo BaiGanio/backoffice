@@ -7,9 +7,15 @@ import Routes from "./navigation/Routes";
 export default function App() {
   return (
     <div className="App">
-      <AppNavBar />
-      <Routes />
-      <Footer />
+      <div className="Navigation">
+        <AppNavBar />
+      </div>
+      <div className="Main">
+        <Routes />
+      </div>
+      <div className="Footer">
+        <Footer />
+      </div>
     </div>
   );
 }

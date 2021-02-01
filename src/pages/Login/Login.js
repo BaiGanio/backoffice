@@ -12,6 +12,10 @@ import {
 import { useDispatch } from "react-redux";
 import { loginUserAction } from "../../redux/actions/user.action";
 import { getUserByToken } from "../../services/user-data.service";
+import {
+  showLoadingAction,
+  hideLoadingAction,
+} from "../../redux/actions/common.action";
 
 export default function Login() {
   const routeHistory = useHistory();
@@ -22,6 +26,8 @@ export default function Login() {
       username: values.email,
       password: values.password,
     };
+
+    dispatch(showLoadingAction());
     requestUserToken(request).then(
       (response) => {
         saveUserToken(response.access_token);
@@ -29,6 +35,7 @@ export default function Login() {
           (user) => {
             setSubmitting(false);
             dispatch(loginUserAction(user));
+            dispatch(hideLoadingAction());
             routeHistory.push("/dashboard");
           },
           (error) => {
@@ -39,6 +46,7 @@ export default function Login() {
       },
       (error) => {
         setSubmitting(false);
+        dispatch(hideLoadingAction());
       }
     );
   }
@@ -104,7 +112,7 @@ export default function Login() {
               </Form.Control.Feedback>
             </Form.Group>
             <Button block size="lg" type="submit" disabled={isSubmitting}>
-              {isSubmitting ? "Loging..." : "Login"}
+              Login
             </Button>
           </Form>
         )}
