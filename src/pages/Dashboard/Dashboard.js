@@ -20,7 +20,7 @@ import { UsersTable } from "../../containers/UsersTable";
 import { BloggersTable } from "../../containers/BloggersTable";
 
 export default function Dashboard() {
-  const [open, setOpen] = React.useState(true);
+  const [open] = React.useState(true);
   const [drawerContent, setDrawerContent] = React.useState(
     drawerContentsEnum.Dashboard
   );
