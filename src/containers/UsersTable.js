@@ -36,6 +36,7 @@ function UsersTable() {
           field: "actions",
           headerName: "Actions",
           filterable: false,
+          sortable: false,
           renderCell: (params) => (
             <div>
               <IconButton
