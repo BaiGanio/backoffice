@@ -1,6 +1,10 @@
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
-import { getAllBloggers, updateBlogger } from "../services/blogger.service";
+import {
+  getAllBloggers,
+  updateBlogger,
+  updateBloggerAvatarPicture,
+} from "../services/blogger.service";
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -12,6 +16,7 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import { UserRolesEnum } from "../utils/enums";
 import { Formik } from "formik";
 import { Avatar } from "@material-ui/core";
+import EditAvatar from "react-avatar-edit";
 import { Button, Form } from "react-bootstrap";
 import {
   hideLoadingAction,
@@ -25,6 +30,8 @@ function BloggersTable() {
   const [state, setState] = React.useState({
     openUpdateBloggerDialog: false,
     bloggerToUpdate: {},
+    showEditAvatar: false,
+    previewAvatar: "",
   });
   const {
     data: allBloggers,
@@ -32,7 +39,15 @@ function BloggersTable() {
     isError,
   } = useQuery("all-bloggers", () => getAllBloggers());
   const updateBloggerMutation = useMutation(
-    (blogger) => updateBlogger(blogger),
+    ({ avatarBase64, ...blogger }) => {
+      if (avatarBase64) {
+        return updateBloggerAvatarPicture(avatarBase64).then((next) =>
+          updateBlogger(blogger)
+        );
+      } else {
+        return updateBlogger(blogger);
+      }
+    },
     {
       onSuccess: () => {
         queryClient.invalidateQueries("all-bloggers");
@@ -43,6 +58,7 @@ function BloggersTable() {
       },
     }
   );
+  const changeAvatarRef = React.useRef(null);
 
   const isAdmin = userRoles?.map((r) => r.name).includes(UserRolesEnum.Admin);
 
@@ -99,7 +115,10 @@ function BloggersTable() {
   function editBlogger(values, { setSubmitting }) {
     dispatch(showLoadingAction());
     setSubmitting(false);
-    updateBloggerMutation.mutate(values);
+    updateBloggerMutation.mutate({
+      ...values,
+      avatarBase64: state.previewAvatar,
+    });
   }
 
   function openEditBloggerDialog(id) {
@@ -121,6 +140,8 @@ function BloggersTable() {
       ...state,
       openUpdateBloggerDialog: false,
       bloggerToUpdate: {},
+      showEditAvatar: false,
+      previewAvatar: "",
     }));
   }
 
@@ -164,7 +185,10 @@ function BloggersTable() {
           </DialogTitle>
           <DialogContent dividers>
             <Formik
-              initialValues={state.bloggerToUpdate}
+              initialValues={{
+                email: state.bloggerToUpdate.email,
+                nickname: state.bloggerToUpdate.nickname,
+              }}
               validate={(values) => {
                 const errors = {};
                 return errors;
@@ -180,15 +204,48 @@ function BloggersTable() {
                 isSubmitting,
               }) => (
                 <Form onSubmit={handleSubmit}>
-                  <Avatar
+                  <div
                     style={{
-                      height: "70px",
-                      width: "70px",
-                      margin: "0 auto",
+                      display: "flex",
+                      flexFlow: "row nowrap",
+                      justifyContent: "center",
+                      alignItems: "center",
                     }}
-                    alt="Avatar"
-                    src={values.avatarUrl}
-                  />
+                  >
+                    {state.showEditAvatar ? (
+                      <>
+                        <EditAvatar
+                          ref={changeAvatarRef}
+                          width={300}
+                          height={200}
+                          onCrop={(preview) =>
+                            setState((s) => ({ ...s, previewAvatar: preview }))
+                          }
+                          onClose={() =>
+                            setState((s) => ({
+                              ...s,
+                              previewAvatar: "",
+                              showEditAvatar: false,
+                            }))
+                          }
+                        />
+                        <div style={{ width: "50px" }} />
+                      </>
+                    ) : null}
+                    <Avatar
+                      onClick={() =>
+                        setState((s) => ({ ...s, showEditAvatar: true }))
+                      }
+                      style={{
+                        width: "70px",
+                        height: "70px",
+                      }}
+                      src={
+                        state.previewAvatar || state.bloggerToUpdate.avatarUrl
+                      }
+                      alt="Preview Avatar"
+                    />
+                  </div>
                   <Form.Group>
                     <Form.Label>Nickname</Form.Label>
                     <Form.Control
@@ -209,16 +266,7 @@ function BloggersTable() {
                       placeholder="Enter email"
                     />
                   </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Avatar Url</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="avatarUrl"
-                      onChange={handleChange}
-                      value={values.avatarUrl}
-                      placeholder="Enter avatar url"
-                    />
-                  </Form.Group>
+                  <Form.Group>{/* TODO: Subscription status */}</Form.Group>
                   <DialogActions>
                     <Button variant="default" onClick={closeEditBloggerDialog}>
                       Cancel

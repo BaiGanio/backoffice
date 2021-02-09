@@ -24,11 +24,11 @@ function updateBlogger(blogger) {
   return backendAPI.POST("/Bloggers/Update", updateBody);
 }
 
-function updateBloggerAvatarPicture(avatarUrl) {
-  const deleteBody = JSON.stringify({
-    AvatarUrl: avatarUrl,
+function updateBloggerAvatarPicture(base64) {
+  const updateAvatarBody = JSON.stringify({
+    AvatarUrl: base64,
   });
-  return backendAPI.POST("/Admin/DeleteUser", deleteBody);
+  return backendAPI.POST("/Bloggers/UpdateAvatarPicture", updateAvatarBody);
 }
 
 export {
