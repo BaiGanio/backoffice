@@ -41,6 +41,7 @@ export default function Login() {
           (error) => {
             setSubmitting(false);
             logoutUser();
+            dispatch(hideLoadingAction());
           }
         );
       },

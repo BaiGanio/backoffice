@@ -60,6 +60,7 @@ function BloggersTable() {
     { field: "nickname", headerName: "Nickname", flex: 1 },
     { field: "email", headerName: "Email", flex: 1 },
     { field: "createdOn", headerName: "Created On", flex: 1 },
+    { field: "modifiedOn", headerName: "Modified On", flex: 1 },
     isAdmin
       ? {
           field: "actions",
@@ -91,6 +92,7 @@ function BloggersTable() {
       lastName: b.lastName,
       nickname: b.nickname,
       email: b.email,
+      modifiedOn: new Date(b.modifiedOn).toLocaleString("bg-BG"),
       createdOn: new Date(b.createdOn).toLocaleString("bg-BG"),
     })) ?? [];
 
