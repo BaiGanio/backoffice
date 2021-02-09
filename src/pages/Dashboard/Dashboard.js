@@ -5,6 +5,8 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -20,17 +22,13 @@ import { UsersTable } from "../../containers/UsersTable";
 import { BloggersTable } from "../../containers/BloggersTable";
 
 export default function Dashboard() {
-  const [open] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
   const [drawerContent, setDrawerContent] = React.useState(
     drawerContentsEnum.Dashboard
   );
 
   const drawerClasses = useDrawerStyles();
   const fixedHeightPaper = clsx(drawerClasses.paper, drawerClasses.fixedHeight);
-
-  const handleDrawerClose = () => {
-    // setOpen(false);
-  };
 
   const dashboardContent = (
     <Grid container spacing={3}>
@@ -74,24 +72,40 @@ export default function Dashboard() {
     <div className={drawerClasses.root}>
       <Drawer
         variant="permanent"
+        className={clsx(drawerClasses.drawer, {
+          [drawerClasses.drawerPaperOpen]: open,
+          [drawerClasses.drawerPaperClose]: !open,
+        })}
         classes={{
-          paper: clsx(
-            drawerClasses.drawerPaper,
-            !open && drawerClasses.drawerPaperClose
-          ),
+          paper: clsx({
+            [drawerClasses.drawerPaperOpen]: open,
+            [drawerClasses.drawerPaperClose]: !open,
+          }),
         }}
         open={open}
       >
-        <div className={drawerClasses.toolbarIcon}>
-          <IconButton onClick={handleDrawerClose}>Preview v1.4.1</IconButton>
+        <div className={drawerClasses.toolbarIcons}>
+          <IconButton
+            className={clsx(!open && drawerClasses.hide)}
+            aria-label="close drawer"
+            onClick={() => setOpen(false)}
+          >
+            <ChevronLeftIcon />
+          </IconButton>
+          <IconButton
+            className={clsx(open && drawerClasses.hide)}
+            aria-label="open drawer"
+            onClick={() => setOpen(true)}
+          >
+            <ChevronRightIcon />
+          </IconButton>
         </div>
         <Divider />
         <MainListItems changePage={setDrawerContent} />
         <Divider />
-        <List>{secondaryListItems}</List>
+        <List className={drawerClasses.list}>{secondaryListItems}</List>
       </Drawer>
       <main className={drawerClasses.content}>
-        <div className={drawerClasses.appBarSpacer} />
         <Container maxWidth="lg" className={drawerClasses.container}>
           {content()}
         </Container>

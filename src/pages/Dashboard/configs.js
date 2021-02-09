@@ -4,7 +4,6 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import ListSubheader from "@material-ui/core/ListSubheader";
 import DashboardIcon from "@material-ui/icons/Dashboard";
 import ImportContactsIcon from "@material-ui/icons/ImportContacts";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -14,7 +13,7 @@ import AssignmentIcon from "@material-ui/icons/Assignment";
 
 export function MainListItems({ changePage }) {
   return (
-    <List>
+    <List className={useDrawerStyles().list}>
       <ListItem button onClick={() => changePage(drawerContentsEnum.Dashboard)}>
         <ListItemIcon>
           <DashboardIcon />
@@ -33,30 +32,6 @@ export function MainListItems({ changePage }) {
         </ListItemIcon>
         <ListItemText primary="Orders" />
       </ListItem>
-      {/* <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <LinkContainer to="/characters-mui">
-        <ListItemText primary="Characters (material ui)" />
-      </LinkContainer>
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <LinkContainer to="/characters">
-        <ListItemText primary="Characters (bootstrap)" />
-      </LinkContainer>
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <PeopleIcon />
-      </ListItemIcon>
-      <LinkContainer to="/courses">
-        <ListItemText primary="Courses" />
-      </LinkContainer>
-    </ListItem> */}
       <ListItem button>
         <ListItemIcon>
           <BarChartIcon />
@@ -75,7 +50,6 @@ export function MainListItems({ changePage }) {
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>Saved reports</ListSubheader>
     <ListItem button>
       <ListItemIcon>
         <AssignmentIcon />
@@ -101,15 +75,10 @@ export const useDrawerStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
   },
-  toolbar: {
-    paddingRight: 24, // keep right padding when drawer closed
-  },
-  toolbarIcon: {
+  toolbarIcons: {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
-    padding: "0 8px",
-    ...theme.mixins.toolbar,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -118,32 +87,28 @@ export const useDrawerStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
-  appBarShift: {
-    // marginLeft: drawerWidth,
-    // width: `calc(100% - ${drawerWidth}px)`,
-    // transition: theme.transitions.create(['width', 'margin'], {
-    //   easing: theme.transitions.easing.sharp,
-    //   duration: theme.transitions.duration.enteringScreen,
-    // }),
-  },
-  menuButton: {
-    marginRight: 36,
-  },
-  menuButtonHidden: {
+  hide: {
     display: "none",
   },
-  title: {
-    flexGrow: 1,
+  list: {
+    paddingLeft: "7px",
   },
-  drawerPaper: {
-    position: "relative",
+  drawer: {
+    width: "240px",
+    flexShrink: 0,
     whiteSpace: "nowrap",
+    marginLeft: "-1%",
+  },
+  drawerPaperOpen: {
+    width: "240px",
+    position: "relative",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   drawerPaperClose: {
+    position: "relative",
     overflowX: "hidden",
     transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
@@ -153,6 +118,8 @@ export const useDrawerStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       width: theme.spacing(9),
     },
+    // visibility: "visible !important",
+    // transform: "translate(0) !important",
   },
   appBarSpacer: theme.mixins.toolbar,
   content: {
